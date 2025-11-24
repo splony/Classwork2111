@@ -19,23 +19,32 @@ New1.java</font>
 <pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
 
 <span class="s0">public class </span><span class="s1">New1 </span><span class="s2">{</span>
+    <span class="s0">private static </span><span class="s1">Object i</span><span class="s2">;</span>
 
     <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
-
         <span class="s1">Scanner scanner </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
-        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Пожалуйста, введите число:&quot;</span><span class="s2">);</span>
-
-        <span class="s0">int </span><span class="s1">n </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
-
-        <span class="s0">int </span><span class="s1">sum </span><span class="s2">= </span><span class="s4">100</span><span class="s2">;</span>
-        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s4">1</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt;=</span><span class="s1">n</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++){</span>
-            <span class="s1">sum </span><span class="s2">= </span><span class="s1">sum </span><span class="s2">= </span><span class="s1">i</span><span class="s2">;</span>
-
-            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">sum</span><span class="s2">);</span>
+        <span class="s0">long </span><span class="s1">N</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Введите число N (1 &lt; N &lt; 50): &quot;</span><span class="s2">);</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">hasNextInt</span><span class="s2">()) {</span>
+                <span class="s1">N </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">N </span><span class="s2">&gt;= </span><span class="s4">1 </span><span class="s2">&amp;&amp; </span><span class="s1">N </span><span class="s2">&lt;= </span><span class="s4">50</span><span class="s2">) {</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Ошибка: число должно быть больше 1 и меньше 50!&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+            <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Ошибка: введите целое число!&quot;</span><span class="s2">);</span>
+                <span class="s1">scanner</span><span class="s2">.</span><span class="s1">next</span><span class="s2">();</span>
+            <span class="s2">}</span>
         <span class="s2">}</span>
+        <span class="s0">long </span><span class="s1">factorial </span><span class="s2">= </span><span class="s4">1</span><span class="s2">;</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">long </span><span class="s1">i </span><span class="s2">= </span><span class="s4">2</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt;= </span><span class="s1">N</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s1">factorial </span><span class="s2">*= </span><span class="s1">i</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">N </span><span class="s2">+ </span><span class="s3">&quot;! = &quot; </span><span class="s2">+ </span><span class="s1">factorial</span><span class="s2">);</span>
 
     <span class="s2">}</span>
-<span class="s2">}</span>
-</pre>
+<span class="s2">}</span></pre>
 </body>
 </html>
